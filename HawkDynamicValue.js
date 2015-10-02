@@ -1,4 +1,4 @@
-require('hawk.js');
+var hawk = require('hawk.js');
 
 var HawkDynamicValue = function() {
 
