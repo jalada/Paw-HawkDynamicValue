@@ -3,6 +3,10 @@ var hawk = require('hawk.js');
 var HawkDynamicValue = function() {
 
   this.evaluate = function(context) {
+    if(['sha1', 'sha256'].indexOf(this.algorithm) < 0) {
+      throw new Error('The algorithm must be either `sha1` or `sha256`');
+    }
+
     // Client credentials
     var credentials = {
         id: this.id || "",
