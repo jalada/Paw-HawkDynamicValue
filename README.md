@@ -3,6 +3,13 @@
 A [Paw Extension](http://luckymarmot.com/paw/extensions/) to allow insertion of
 a Hawk token in the Authorization header.
 
+## Changelog
+
+### 1.0.1
+
+ - Add support for dropdown and placeholders on inputs in Paw 2.3+ [#3](https://github.com/jalada/Paw-HawkDynamicValue/pull/3/).
+ - Fix API for Paw 2.2.3 [#1](https://github.com/jalada/Paw-HawkDynamicValue/pull/1).
+
 # License
 
 This Paw Extension is released under the MIT License.
