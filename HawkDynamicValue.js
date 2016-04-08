@@ -31,9 +31,19 @@ var HawkDynamicValue = function() {
 HawkDynamicValue.identifier = 'uk.co.jalada.PawExtensions.HawkDynamicValue';
 HawkDynamicValue.title = 'Hawk Authentication';
 HawkDynamicValue.inputs = [
-  DynamicValueInput("algorithm", "Algorithm", "String"),
-  DynamicValueInput("key", "Key", "String"),
-  DynamicValueInput("id", "ID", "String")
+  DynamicValueInput("id", "ID", "String", {
+    placeholder: "Hawk key identifier"
+  }),
+  DynamicValueInput("key", "Key", "String", {
+    placeholder: "Hawk key"
+  }),
+  DynamicValueInput("algorithm", "Algorithm", "Select", {
+    choices: {
+      "sha1": "SHA-1",
+      "sha256": "SHA-256"
+    },
+    defaultValue: "sha1"
+  })
 ];
 
 registerDynamicValueClass(HawkDynamicValue);
