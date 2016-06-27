@@ -1,4 +1,4 @@
-var hawk = require('hawk.js');
+var Hawk = require('hawk.js');
 
 var HawkDynamicValue = function() {
 
@@ -16,7 +16,8 @@ var HawkDynamicValue = function() {
 
     var currentRequest = context.getCurrentRequest();
 
-    var header = hawk.client.header(currentRequest.url, currentRequest.method, { credentials: credentials });
+    var header = Hawk.client.header(currentRequest.url, currentRequest.method, { credentials: credentials, ext: this.ext });
+
     // Send authenticated request
     return header.field;
   };
@@ -43,7 +44,10 @@ HawkDynamicValue.inputs = [
       "sha256": "SHA-256"
     },
     defaultValue: "sha1"
-  })
+  }),
+  DynamicValueInput("ext", "Ext", "String", {
+    placeholder: ""
+  }),
 ];
 
 registerDynamicValueClass(HawkDynamicValue);
