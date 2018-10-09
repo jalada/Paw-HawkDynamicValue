@@ -61,7 +61,7 @@ HawkDynamicValue.inputs = [
     placeholder: "Username"
   }),
   DynamicValueInput("nonce", "Nonce", "String", {
-    placeholder: "Bibce"
+    placeholder: "Nonce"
   }),
   DynamicValueInput("ext", "ext", "String", {
     placeholder: "e.g. some app specific data"
