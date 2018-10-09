@@ -16,7 +16,19 @@ var HawkDynamicValue = function() {
 
     var currentRequest = context.getCurrentRequest();
 
-    var header = Hawk.client.header(currentRequest.url, currentRequest.method, { credentials: credentials, ext: this.ext });
+    var header = Hawk.client.header(
+      currentRequest.url,
+      currentRequest.method,
+      {
+        credentials: credentials,
+        user: this.user,
+        nonce: this.nonce,
+        ext: this.ext,
+        app: this.app,
+        dlg: this.dlg,
+        timestamp: this.timestamp
+      }
+    );
 
     // Send authenticated request
     return header.field;
@@ -45,8 +57,23 @@ HawkDynamicValue.inputs = [
     },
     defaultValue: "sha1"
   }),
-  DynamicValueInput("ext", "Ext", "String", {
-    placeholder: ""
+  DynamicValueInput("user", "User", "String", {
+    placeholder: "Username"
+  }),
+  DynamicValueInput("nonce", "Nonce", "String", {
+    placeholder: "Bibce"
+  }),
+  DynamicValueInput("ext", "ext", "String", {
+    placeholder: "e.g. some app specific data"
+  }),
+  DynamicValueInput("app", "app", "String", {
+    placeholder: "application id"
+  }),
+  DynamicValueInput("dlg", "dlg", "String", {
+    placeholder: "e.g. delegated-by"
+  }),
+  DynamicValueInput("timestamp", "Timestamp", "String", {
+    placeholder: "allows to specify a timestamp"
   }),
 ];
 
